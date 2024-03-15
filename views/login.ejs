@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <!-- Linking Starts -->
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Linking Ends -->
+  </head>
+
+  <body>
+    <header></header>
+
+    <main>
+      <div class="wrapper">
+        <form id="form-login">
+          <h1 id="message">LogIn</h1>
+
+          <div class="inputbox">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Enter Your Email"
+              required
+            />
+            <i class="bx bxs-user"></i>
+          </div>
+
+          <div class="inputbox">
+            <input
+              id="password"
+              name="password"
+              type="Password"
+              placeholder="Enter Your Password"
+              required
+            />
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+
+          <!-- Feature Off : Remember Me & Forgot Password -->
+          <!-- <div class="remember-forgot">
+						<label><input type="checkbox" />Remember Me</label>
+						<a href="#">Forgot password?</a>
+					</div> -->
+
+          <button type="submit" class="btn">Login</button>
+
+          <div class="register-link">
+            <p>Don't have an account? <a href="/signup">Register</a></p>
+          </div>
+          <div class="back-home">
+            <a href="/">Go back to Homepage</a>
+          </div>
+        </form>
+      </div>
+      <script src="/javascripts/login.js" type="module"></script>
+    </main>
+    <footer></footer>
+  </body>
+</html>
