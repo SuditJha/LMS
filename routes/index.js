@@ -1,17 +1,68 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+// Importing User Model
+const userModel = require('./users')
+
+// Setting up local Strategy
+const passport = require('passport')
+const localStrategy = require('passport-local')
+passport.use(new localStrategy(userModel.authenticate()))
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index');
 });
 
-router.get('/login', function (req, res) {
+router.get('/login', async function (req, res) {
   res.render('login')
 })
 
 router.get('/signup', function (req, res) {
   res.render('signup')
 })
+
+router.get('/profile', isLoggedIn, function (req, res) {
+  res.render("profile")
+})
+
+// Register Route
+router.post('/register', function (req, res) {
+  const userData = new userModel({
+    username: req.body.username,
+    email: req.body.email,
+    name: req.body.name,
+  })
+
+  userModel.register(userData, req.body.password)
+    .then(function (registeredUser) {
+      passport.authenticate('local')(req, res, function () {
+        res.redirect('/profile')
+      })
+    })
+})
+
+// Login Route
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/profile',
+  failureRedirect: '/'
+}), function (req, res) { })
+
+// Logout Route
+router.get('/logout', function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err)
+    }
+    res.redirect('/')
+  })
+})
+
+// IsLoggedIN Middleware
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+  res.redirect('/')
+}
 
 module.exports = router;

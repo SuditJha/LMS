@@ -19,7 +19,7 @@
     <header></header>
     <main>
       <div class="wrapper">
-        <form id="form-sign-up">
+        <form action="/register" method="post" id="form-sign-up">
           <h1 id="sign-up-heading">Sign Up</h1>
 
           <div class="inputbox">
@@ -35,7 +35,18 @@
 
           <div class="inputbox">
             <input
-              name="user-name"
+              name="username"
+              id="user-name"
+              type="text"
+              placeholder="Enter Your Username"
+              required
+            />
+            <i class="bx bxs-user"></i>
+          </div>
+
+          <div class="inputbox">
+            <input
+              name="name"
               id="user-name"
               type="text"
               placeholder="Enter Your Full Name"
@@ -49,7 +60,7 @@
               name="password"
               id="password"
               type="Password"
-              placeholder="Select a Password"
+              placeholder="Enter Your Password"
               required
             />
             <i class="bx bxs-lock-alt"></i>
