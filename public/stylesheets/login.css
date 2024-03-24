@@ -128,6 +128,13 @@ header > nav > a {
   font-weight: bold;
 }
 
+.error {
+  text-transform: capitalize;
+  color: rgb(255, 48, 48);
+  text-align: center;
+  font-weight: bold;
+}
+
 /* .wrapper .remember-forgot {
 	display: flex;
 	justify-content: space-between;

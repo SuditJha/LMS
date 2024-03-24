@@ -1,2 +1,7 @@
 - Express Generator
 - Mongoose
+- passport
+- passport-local
+- passport-local-mongoose
+- express-session
+- connect-flash

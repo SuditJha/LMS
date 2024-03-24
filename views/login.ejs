@@ -23,6 +23,10 @@
         <form action="/login" method="post" id="form-login">
           <h1 id="message">LogIn</h1>
 
+          <% if( error.length > 0 ){ %>
+          <p class="error"><%=error%></p>
+          <% } %>
+
           <div class="inputbox">
             <input
               id="username"

@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const expressSession = require('express-session')
 const passport = require('passport')
+const flash = require('connect-flash')
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -14,6 +15,9 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+// Flash Messages Setup
+app.use(flash())
 
 // Express Session Setup
 app.use(expressSession({

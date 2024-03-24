@@ -14,7 +14,8 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/login', async function (req, res) {
-  res.render('login')
+  // console.log(req.flash('error'))
+  res.render('login', { error: req.flash('error') })
 })
 
 router.get('/signup', function (req, res) {
@@ -44,7 +45,8 @@ router.post('/register', function (req, res) {
 // Login Route
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/profile',
-  failureRedirect: '/'
+  failureRedirect: '/login',
+  failureFlash: true // Enabling Flash Messages on failure to login
 }), function (req, res) { })
 
 // Logout Route
