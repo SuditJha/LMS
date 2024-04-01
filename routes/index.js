@@ -23,13 +23,20 @@ router.get('/signup', function (req, res) {
 })
 
 // Profile route
-router.get('/profile', isLoggedIn, function (req, res) {
-  res.render("profile")
+router.get('/profile', isLoggedIn, async function (req, res) {
+  const user = await userModel.findOne({
+    username: req.session.passport.user
+  })
+  res.render("profile", { user })
 })
 
 // Dashboard Route
-router.get('/dashboard', isLoggedIn, function (req, res) {
-  res.render('dashboard')
+router.get('/dashboard', isLoggedIn, async function (req, res) {
+  const user = await userModel.findOne({
+    username: req.session.passport.user
+  })
+  console.log(user)
+  res.render('dashboard', { user })
 })
 
 // Register Route
