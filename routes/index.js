@@ -22,8 +22,14 @@ router.get('/signup', function (req, res) {
   res.render('signup')
 })
 
+// Profile route
 router.get('/profile', isLoggedIn, function (req, res) {
   res.render("profile")
+})
+
+// Dashboard Route
+router.get('/dashboard', isLoggedIn, function (req, res) {
+  res.render('dashboard')
 })
 
 // Register Route
@@ -37,14 +43,14 @@ router.post('/register', function (req, res) {
   userModel.register(userData, req.body.password)
     .then(function (registeredUser) {
       passport.authenticate('local')(req, res, function () {
-        res.redirect('/profile')
+        res.redirect('/dashboard')
       })
     })
 })
 
 // Login Route
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/profile',
+  successRedirect: '/dashboard',
   failureRedirect: '/login',
   failureFlash: true // Enabling Flash Messages on failure to login
 }), function (req, res) { })
