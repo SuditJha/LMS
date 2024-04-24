@@ -39,6 +39,18 @@ router.get('/dashboard', isLoggedIn, async function (req, res) {
   res.render('dashboard', { user })
 })
 
+router.get('/members', isLoggedIn, function (req, res) {
+  res.send("Members Management")
+})
+
+router.get('/books', isLoggedIn, function (req, res) {
+  res.send("Books Management")
+})
+
+
+// POST
+
+
 // Register Route
 router.post('/register', function (req, res) {
   const userData = new userModel({

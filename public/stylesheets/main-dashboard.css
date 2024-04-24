@@ -13,7 +13,7 @@
 }
 
 nav {
-  position: fixed;
+  /* position: fixed; */
   background: #1b1b1b;
   width: 100%;
   padding: 10px 0;
@@ -89,4 +89,82 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
+}
+
+/* Main */
+main {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 1em;
+}
+
+.card {
+  margin-top: 1.75em;
+  width: 80%;
+  background-color: #00b7ff;
+  color: whitesmoke;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  flex: 1 1 auto;
+}
+
+.card-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75em 0.5em 0.5em;
+}
+
+.card-inner > div > h3 {
+  text-align: center;
+  text-shadow: 0 0 5px rgb(140, 140, 141);
+  font-size: 2.5rem;
+}
+.card-inner > div > h2 {
+  margin-left: 0.5em;
+  text-align: center;
+}
+.add-member-img {
+  width: 60px;
+  -webkit-filter: brightness(2.5);
+  -moz-filter: brightness(2.5);
+  -ms-filter: brightness(2.5);
+  filter: brightness(2.5);
+}
+
+.add-books-img {
+  width: 60px;
+}
+
+.dark {
+  text-align: center;
+  background-color: #00c3ff;
+  padding: 0.4em 0;
+}
+.dark > a {
+  color: white;
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+}
+
+.green {
+  background-color: #04a777;
+}
+.dark-green {
+  background-color: #0d7556;
+  padding: 0.4em 0;
+  text-align: center;
+}
+.dark-green > a {
+  color: white;
+  text-decoration: none;
 }
