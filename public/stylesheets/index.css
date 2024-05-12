@@ -1,124 +1,124 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Whisper&display=swap");
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
 }
 ::selection {
-  color: #000;
-  background: #fff;
+	color: #000;
+	background: #fff;
 }
 nav {
-  position: fixed;
-  background: #1b1b1b;
-  width: 100%;
-  padding: 10px 0;
-  z-index: 12;
+	position: fixed;
+	background: #1b1b1b;
+	width: 100%;
+	padding: 10px 0;
+	z-index: 12;
 }
 nav .menu {
-  max-width: 1250px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+	max-width: 1250px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
 }
 .menu .logo a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 35px;
-  font-weight: 600;
-  font-family: Poppins;
+	text-decoration: none;
+	color: #fff;
+	font-size: 35px;
+	font-weight: 600;
+	font-family: Poppins;
 }
 .menu ul {
-  display: inline-flex;
+	display: inline-flex;
 }
 .menu ul li {
-  list-style: none;
-  margin-left: 7px;
+	list-style: none;
+	margin-left: 7px;
 }
 .menu ul li:first-child {
-  margin-left: 0px;
+	margin-left: 0px;
 }
 .menu ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+	text-decoration: none;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 500;
+	padding: 8px 15px;
+	border-radius: 5px;
+	transition: all 0.3s ease;
 }
 .menu ul li a:hover {
-  background: #be7e3e;
-  color: white;
+	background: #be7e3e;
+	color: white;
 }
 .img {
-  background: url(/images/homepage_image.jpg) no-repeat;
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  filter: blur(1px);
+	background: url(/public/images/homepage_image.png) no-repeat;
+	width: 100%;
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	filter: blur(1px);
 }
 .img::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
+	content: "";
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.4);
 }
 .center {
-  position: absolute;
-  top: 52%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  padding: 0 20px;
-  text-align: center;
+	position: absolute;
+	top: 52%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	padding: 0 20px;
+	text-align: center;
 }
 .center .title {
-  color: #fff;
-  font-size: 50px;
-  font-weight: 600;
-  font-family: Poppins;
+	color: #fff;
+	font-size: 50px;
+	font-weight: 600;
+	font-family: Poppins;
 }
 
 .center .sub_title {
-  color: white;
-  font-size: 150px;
-  font-weight: 500;
-  font-family: Whisper;
+	color: white;
+	font-size: 150px;
+	font-weight: 500;
+	font-family: Whisper;
 }
 
 .center .btns {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 .center .btns a {
-  height: 55px;
-  width: 170px;
-  border-radius: 5px;
-  border: none;
-  margin: 0 10px;
-  border: 2px solid rgb(255, 255, 255);
-  font-size: 20px;
-  font-weight: 500;
-  padding: 0 10px;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.3s ease;
-  background-color: #1b1b1b;
-  color: white;
-  text-decoration: none;
+	height: 55px;
+	width: 170px;
+	border-radius: 5px;
+	border: none;
+	margin: 0 10px;
+	border: 2px solid rgb(255, 255, 255);
+	font-size: 20px;
+	font-weight: 500;
+	padding: 0 10px;
+	cursor: pointer;
+	outline: none;
+	transition: all 0.3s ease;
+	background-color: #1b1b1b;
+	color: white;
+	text-decoration: none;
 }
 
 .center .btns a {
-  text-decoration: none;
-  color: white;
+	text-decoration: none;
+	color: white;
 }
 
 .center .btns button:hover {
-  background-color: #be7e3e;
+	background-color: #be7e3e;
 }
