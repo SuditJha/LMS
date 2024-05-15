@@ -24,11 +24,6 @@ const bookSchema = mongoose.Schema({
         default: "No"
     },
 
-    customer: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Member"
-    }
-
 })
 
 const booksModel = mongoose.model("Book", bookSchema)

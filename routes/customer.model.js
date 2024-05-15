@@ -20,12 +20,16 @@ const customerSchema = mongoose.Schema({
     dueDate: {
         type: Date
     },
+    customer: {
+        type: String,
+        default: "customer"
+    },
     book: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Book"
     }
 })
 
-const customerModel = mongoose.model("Member", customerSchema)
+const customerModel = mongoose.model("Customer", customerSchema)
 
 module.exports = customerModel
