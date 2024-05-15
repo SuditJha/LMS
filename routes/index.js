@@ -3,6 +3,7 @@ const router = express.Router();
 // Importing User Model
 const userModel = require('./users')
 const booksModel = require('./books.model')
+const customerModel = require('./customer.model')
 // const generateHtmlString = require('./generateHtmlString')
 
 // Setting up local Strategy
@@ -65,6 +66,14 @@ router.get('/books', isLoggedIn, function (req, res) {
   res.render("books")
 })
 
+router.get('/customers', async function (req, res) {
+  const customers = await customerModel.find({
+    customer: "customer"
+  }).populate("book")
+  // console.log(customers)
+  // res.send(customers)
+  res.render("customers", { customers })
+})
 
 // POST
 
@@ -106,7 +115,6 @@ router.post("/addBook", async function (req, res, next) {
   const books = await booksModel.find({
     book: "book"
   })
-
   // const htmlString = books.map((book, index) => {
   //   return `<tr>
   //           <th scope="row">${index + 1}</th>
@@ -131,6 +139,45 @@ router.post("/deleteBook", async function (req, res, next) {
   })
   res.render("dashboard", { books })
 })
+
+// Issue Book
+router.post("/issueBook", async function (req, res, next) {
+  const book = await booksModel.updateOne({
+    _id: req.body.id
+  }, { issued: "YES" })
+
+  const { name, address, phone, issueDate, dueDate, id } = req.body
+  console.log(id);
+  const newCustomer = await customerModel.create({
+    name,
+    address,
+    phone,
+    issueDate,
+    dueDate,
+    book: id
+  })
+  // console.log(book)
+  const books = await booksModel.find({
+    book: "book"
+  })
+  res.render("dashboard", { books })
+})
+
+router.post("/returnBook", async function (req, res, next) {
+  const book = await booksModel.updateOne({
+    _id: req.body.id
+  }, { issued: "NO" })
+  // console.log(book)
+  const deletedCustomer = await customerModel.deleteOne({ book: req.body.id })
+  console.log(deletedCustomer);
+  const books = await booksModel.find({
+    book: "book"
+  })
+  res.render("dashboard", { books })
+})
+
+
+
 
 
 // Logout Route

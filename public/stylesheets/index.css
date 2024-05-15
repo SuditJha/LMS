@@ -122,3 +122,7 @@ nav .menu {
 .center .btns button:hover {
   background-color: #be7e3e;
 }
+
+.btns-link {
+  padding: 0.5em 1em !important;
+}

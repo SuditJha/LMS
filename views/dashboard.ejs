@@ -68,15 +68,14 @@
           <div class="modal-body">
             <form action="/addBook" method="post">
               <div class="mb-2">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Book Name</label
-                >
+                <label for="dueDate" class="form-label">Book Name</label>
                 <input
                   name="name"
                   type="text"
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="Enter book name"
+                  required
                 />
               </div>
 
@@ -90,17 +89,20 @@
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="Enter book Author"
+                  required
                 />
               </div>
               <select
                 name="genre"
                 class="form-select"
                 aria-label="Default select example"
+                required
               >
-                <option selected>Select genre</option>
+                <option>Select genre</option>
                 <option value="Fiction">Fiction</option>
                 <option value="Non fiction">Non-fiction</option>
                 <option value="Fan-fiction">Fanfiction</option>
+                <option selected value="Others">Others</option>
               </select>
 
               <button type="submit" class="btn btn-primary add-book-btn">
@@ -163,6 +165,7 @@
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="Enter book ID"
+                  required
                 />
               </div>
               <button type="submit" class="btn btn-danger">Delete</button>
@@ -181,6 +184,202 @@
       </div>
     </div>
 
+    <!-- Modal Issue Book -->
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-success add-book-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#issueBook"
+    >
+      Issue Book
+    </button>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="issueBook"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Issue Book</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- Form Of Modal -->
+          <div class="modal-body">
+            <form action="/issueBook" method="post">
+              <div class="mb-2">
+                <label for="id" class="form-label">Enter Book ID</label>
+                <input
+                  name="id"
+                  type="text"
+                  class="form-control"
+                  id="id"
+                  aria-describedby="Enter book ID"
+                  required
+                />
+              </div>
+
+              <div class="mb-2">
+                <label for="exampleInputEmail2" class="form-label"
+                  >Customer Name</label
+                >
+                <input
+                  name="name"
+                  type="text"
+                  class="form-control"
+                  id="exampleInputEmail2"
+                  aria-describedby="Enter Customer Name"
+                  required
+                />
+              </div>
+
+              <div class="mb-2">
+                <label for="exampleInputEmail3" class="form-label"
+                  >Address</label
+                >
+                <input
+                  name="address"
+                  type="text"
+                  class="form-control"
+                  id="exampleInputEmail3"
+                  aria-describedby="Enter book ID"
+                  required
+                />
+              </div>
+
+              <div class="mb-2">
+                <label for="phone" class="form-label">Phone No.</label>
+                <input
+                  name="phone"
+                  type="number"
+                  class="form-control"
+                  id="phone"
+                  aria-describedby="Enter book ID"
+                  required
+                />
+              </div>
+
+              <div class="mb-2">
+                <label for="issueDate" class="form-label">Issue Date</label>
+                <input
+                  name="issueDate"
+                  type="date"
+                  class="form-control"
+                  id="issueDate"
+                  aria-describedby="Enter book ID"
+                  required
+                />
+              </div>
+
+              <div class="mb-2">
+                <label for="dueDate" class="form-label">Due Date</label>
+                <input
+                  name="dueDate"
+                  type="date"
+                  class="form-control"
+                  id="dueDate"
+                  aria-describedby="Enter book ID"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="btn btn-success">Issue</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Return Book -->
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-warning add-book-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#returnBook"
+    >
+      Return Book
+    </button>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="returnBook"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Return Book</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- Form Of Modal -->
+          <div class="modal-body">
+            <form action="/returnBook" method="post">
+              <div class="mb-2">
+                <label for="id" class="form-label">Enter Book ID</label>
+                <input
+                  name="id"
+                  type="text"
+                  class="form-control"
+                  id="id"
+                  aria-describedby="Enter book ID"
+                  required
+                />
+              </div>
+
+              <div class="mb-2">
+                <label for="dueDate" class="form-label">Return Date</label>
+                <input
+                  name="returnDate"
+                  type="date"
+                  class="form-control"
+                  id="dueDate"
+                  aria-describedby="Enter book ID"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="btn btn-warning">Return</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="/customers" class="btn btn-info">Customers Info</a>
     <!-- Display all books -->
     <div id="displayBooks">
       <h2 class="tab-title">YOUR BOOKS</h2>
@@ -192,6 +391,7 @@
             <th scope="col">Author</th>
             <th scope="col">Genre</th>
             <th scope="col">Book ID</th>
+            <th scope="col">Issued</th>
           </tr>
         </thead>
 
@@ -203,6 +403,7 @@
             <td><%= book.author %></td>
             <td><%= book.genre %></td>
             <td><%= book._id %></td>
+            <td><%= book.issued %></td>
           </tr>
           <% }) %>
         </tbody>

@@ -182,6 +182,7 @@ main {
   width: 80%;
   margin: 1em auto;
   padding: 1.5em 1em;
+  text-align: center;
 }
 
 .tab-title {
