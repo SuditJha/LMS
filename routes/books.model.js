@@ -18,9 +18,19 @@ const bookSchema = mongoose.Schema({
     book: {
         type: String,
         default: "book"
+    },
+    issued: {
+        type: String,
+        default: "No"
+    },
+
+    customer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Member"
     }
+
 })
 
-const booksModel = mongoose.model("books", bookSchema)
+const booksModel = mongoose.model("Book", bookSchema)
 
 module.exports = booksModel

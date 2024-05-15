@@ -132,6 +132,18 @@ router.post("/deleteBook", async function (req, res, next) {
   res.render("dashboard", { books })
 })
 
+// Issue Book
+router.post("/issueBook", async function (req, res, next) {
+  const book = await booksModel.updateOne({
+    _id: req.body.id
+  }, { issued: "YES" })
+  // console.log(book)
+  const books = await booksModel.find({
+    book: "book"
+  })
+  res.render("dashboard", { books })
+})
+
 
 // Logout Route
 router.get('/logout', function (req, res, next) {
