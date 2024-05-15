@@ -11,18 +11,13 @@ const bookSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    description: {
+    genre: {
         type: String,
         required: true,
     },
-    rating: {
-        type: Number
-    },
-    reviews: {
-        type: Number
-    },
-    coverImage: {
+    book: {
         type: String,
+        default: "book"
     }
 })
 

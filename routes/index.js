@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 // Importing User Model
 const userModel = require('./users')
+const booksModel = require('./books.model')
+// const generateHtmlString = require('./generateHtmlString')
 
 // Setting up local Strategy
 const passport = require('passport')
@@ -9,9 +11,14 @@ const localStrategy = require('passport-local')
 passport.use(new localStrategy(userModel.authenticate()))
 
 /* GET home page. */
+
 router.get('/', function (req, res, next) {
   res.render('index');
 });
+
+router.get('/test', (req, res) => {
+  res.render('test')
+})
 
 router.get('/login', async function (req, res) {
   // console.log(req.flash('error'))
@@ -32,11 +39,22 @@ router.get('/profile', isLoggedIn, async function (req, res) {
 
 // Dashboard Route
 router.get('/dashboard', isLoggedIn, async function (req, res) {
-  const user = await userModel.findOne({
-    username: req.session.passport.user
+
+  const books = await booksModel.find({
+    book: "book"
   })
-  console.log(user)
-  res.render('dashboard', { user })
+  // console.log(books);
+  // const htmlString = books.map((book, index) => {
+  //   return `<tr>
+  //           <th scope="row">${index + 1}</th>
+  //           <td>${book.name}</td>
+  //           <td>${book.author}</td>
+  //           <td>${book.genre}</td>
+  //           <td>${book._id}</td>
+  //       </tr>`
+  // }).join("")
+  // console.log(htmlString)
+  res.render('dashboard', { books })
 })
 
 router.get('/members', isLoggedIn, function (req, res) {
@@ -44,7 +62,7 @@ router.get('/members', isLoggedIn, function (req, res) {
 })
 
 router.get('/books', isLoggedIn, function (req, res) {
-  res.send("Books Management")
+  res.render("books")
 })
 
 
@@ -74,6 +92,47 @@ router.post('/login', passport.authenticate('local', {
   failureFlash: true // Enabling Flash Messages on failure to login
 }), function (req, res) { })
 
+
+// AddBook
+router.post("/addBook", async function (req, res, next) {
+  const { name, author, genre } = req.body
+  console.log(name, author, genre)
+  const newBook = await booksModel.create({
+    name,
+    author,
+    genre
+  })
+  // const htmlString = generateHtmlString()
+  const books = await booksModel.find({
+    book: "book"
+  })
+
+  // const htmlString = books.map((book, index) => {
+  //   return `<tr>
+  //           <th scope="row">${index + 1}</th>
+  //           <td>${book.name}</td>
+  //           <td>${book.author}</td>
+  //           <td>${book.genre}</td>
+  //           <td>${book._id}</td>
+  //       </tr>`
+  // }).join("")
+
+  res.render("dashboard", { books })
+
+})
+
+// Delete Book
+router.post("/deleteBook", async function (req, res, next) {
+  const book = await booksModel.deleteOne({
+    _id: req.body.id
+  })
+  const books = await booksModel.find({
+    book: "book"
+  })
+  res.render("dashboard", { books })
+})
+
+
 // Logout Route
 router.get('/logout', function (req, res, next) {
   req.logout(function (err) {
@@ -91,5 +150,4 @@ function isLoggedIn(req, res, next) {
   }
   res.redirect('/')
 }
-
 module.exports = router;

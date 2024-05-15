@@ -83,7 +83,7 @@ nav .menu {
 }
 
 body {
-  background: url(/images/mainDashboard.jpg) no-repeat;
+  /* background: url(/images/mainDashboard.png) no-repeat; */
   width: 100%;
   height: 100vh;
   background-size: cover;
@@ -167,4 +167,23 @@ main {
 .dark-green > a {
   color: white;
   text-decoration: none;
+}
+
+.add-book-btn {
+  margin: 2em 1em;
+}
+
+#displayBooks {
+  padding: 1em 4em;
+}
+
+.tab {
+  background-color: aliceblue;
+  width: 80%;
+  margin: 1em auto;
+  padding: 1.5em 1em;
+}
+
+.tab-title {
+  text-align: center;
 }
